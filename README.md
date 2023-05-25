@@ -34,9 +34,12 @@ GPT-3 | GPT-4 | Bing | wrtn | bard
 표 | O | O | O | O | O
 이미지 | X | X | X | O | X
 검색 | X | X | O | O | O
-내용 요약 | O | O | O | O | O
 사이트 요약 | X | X | O | O | O
 대화 결과 저장 | O | O | X | O | X
+글자수 | - | 8500자 | 10000자 | 10000자 | 10000자
+Markdown 입력 | X | X | X | O | X
+Markdown 출력 | O | O | O | O | X
+
 
 
 ### 주관적인 비교
@@ -58,5 +61,7 @@ GPT-3 | GPT-4 | Bing | Wrtn | Bard
 GPT-3 | GPT-4 | Bing | wrtn | bard
 -- | -- | -- | -- | --
 "안녕하세요" | "응,   네, 하지만, 습니다" | "안녕하세요" | "어느   해서이신가요?" | "안녕하세요"
+
+<br><br>
 
 ### 요령
