@@ -1,3 +1,5 @@
+문서정보 : 2023.05.25.~ 작성, 작성자 [@SAgiKPJH](https://github.com/SAgiKPJH)
+
 # 대화형 인공지능 Chat AI 활용 및 비교
 
 ## 개요
