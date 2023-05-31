@@ -263,6 +263,7 @@ GPT-3 | GPT-4 | Bing | wrtn | bard
   }
   ```
 - wrtn 활용 예시 영상  
+  ![wrtn](https://github.com/SagiK-Repository/Chat_AI_Report/assets/66783849/bd6f6eeb-f2b9-4e45-a547-070115fe5651)
 
 <br>
 
