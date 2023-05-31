@@ -324,6 +324,12 @@ GPT-3 | GPT-4 | Bing | wrtn | bard
 - bard 예시 영상
   ![Bard](https://github.com/SagiK-Repository/Chat_AI_Report/assets/66783849/c31abb6c-bd99-40a6-8d06-d547f30377be)
 
+<br>
+
+## 개인적인 평가 (2023년 5월)
+
+- 인터넷 검색을 활용하기엔 BingAI가 좋습니다.
+- wrtn은 아직 정확한 정보를 기대하기에는 부족하다 생각됩니다. 속도도 느린 편입니다.
 
 <br>
 
