@@ -148,7 +148,7 @@ GPT-3 | GPT-4 | Bing | wrtn | bard
       }
   }
   ```
-- 영상
+- GPT-4 활용 예시 영상  
   ![GPT Chat 4](https://github.com/SagiK-Repository/Chat_AI_Report/assets/66783849/c34b685d-23b6-48a9-90df-701ab2b99187)
 
 <br>
@@ -326,7 +326,7 @@ GPT-3 | GPT-4 | Bing | wrtn | bard
       </Grid>
   </Window>
   ```
-- bard 예시 영상
+- bard 예시 영상  
   ![Bard](https://github.com/SagiK-Repository/Chat_AI_Report/assets/66783849/c31abb6c-bd99-40a6-8d06-d547f30377be)
 
 <br>
