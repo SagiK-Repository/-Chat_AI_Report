@@ -81,8 +81,241 @@ GPT-3 | GPT-4 | Bing | wrtn | bard
 
 ## 활용 요령
 
-- 구체적인 숫자와 과정 질문
-- 원하는 정보에 대한 사전 지식 확립
-- 조건을 대입하여 질문
+### 명확한 질문 - 항목으로 질문하기
+- 예시
+  ```bash
+  1. OpencvSharp 사용
+  2. 소스 이미지 크기 작습니다.
+  3. 탬플릿 이미지 크기는 큽니다. 
+  4. 2개의 흑백으로 읽어 옵니다.
+  5. 2개의 이미지를 매칭 합니다. 
+  6. 매칭 기준으로 탬플릿 이미지를 자릅니다.
+  7. 칼라 이미지를 만드는데 R 채널 소스 이미지 넣기.
+  8. GB 채널 탬플릿 이미지 넣기
+  9. RGB 이미지를 만듭니다.
+  10. C# 코드 샘플 코드 보여줘
+  11. C# 코딩 규칙에 맞춰서 최적화 해줘
+  12. 메모리 사용량과 속도의 균형을 맞추어서 최적화 해줘
+  ```
+- 결과
+  ```cs
+  using OpenCvSharp;
+  using System;
+  
+  public class ImageProcessing
+  {
+      public void MatchAndCombineImages(string sourcePath, string templatePath, string outputPath)
+      {
+          try
+          {
+              // 이미지를 흑백으로 읽어옵니다.
+              using Mat sourceImage = new Mat(sourcePath, ImreadModes.Grayscale);
+              using Mat templateImage = new Mat(templatePath, ImreadModes.Grayscale);
+  
+              // 매칭 기준으로 탬플릿 이미지를 자릅니다.
+              // cv::matchTemplate은 탬플릿 이미지가 소스 이미지보다 크면 예외를 발생시킵니다.
+              // 따라서 두 이미지의 크기를 확인하고, 필요한 경우 이미지의 크기를 조정합니다.
+              if (templateImage.Width > sourceImage.Width || templateImage.Height > sourceImage.Height)
+              {
+                  Cv2.Resize(templateImage, templateImage, new Size(sourceImage.Width, sourceImage.Height));
+              }
+  
+              // R 채널에 소스 이미지를 넣습니다.
+              Mat[] rgbChannels = new Mat[3];
+              rgbChannels[2] = sourceImage;
+  
+              // GB 채널에 탬플릿 이미지를 넣습니다.
+              rgbChannels[1] = templateImage;
+              rgbChannels[0] = templateImage;
+  
+              // RGB 이미지를 만듭니다.
+              using Mat outputImage = new Mat();
+              Cv2.Merge(rgbChannels, outputImage);
+  
+              // 이미지를 저장합니다.
+              outputImage.ImWrite(outputPath);
+          }
+          catch (Exception ex)
+          {
+              Console.WriteLine("An error occurred: " + ex.Message);
+          }
+      }
+  }
+  ```
+- 영상
+  ![GPT Chat 4](https://github.com/SagiK-Repository/Chat_AI_Report/assets/66783849/c34b685d-23b6-48a9-90df-701ab2b99187)
 
-### 주관적인 비교
+<br>
+
+### 질문에 대한 추가 정보 제공
+- 원하는 정보에 대한 사전 지식을 제공
+- 예시
+  ```bash
+  OpenCV는 무엇이야?
+  ```  
+  ```bash
+  C#에서 OpenCV를 활용할 수 있어?
+  ```  
+  ```bash 
+  대한민국에서 동전은 어떤 종류가 있어?
+  ```  
+  ```bash
+  C#에서 OpenCV를 활용해서 대한민국 동전을 구분하는 코드를 구성해줘
+  ```
+- 마지막 질문만 한 경우 결과 
+  ```cs
+  using System;
+  using OpenCvSharp;
+  
+  class Program
+  {
+      static void Main(string[] args)
+      {
+          var img = Cv2.ImRead("coins.jpg");
+  
+          var gray = new Mat();
+          Cv2.CvtColor(img, gray, ColorConversionCodes.BGR2GRAY);
+  
+          Cv2.GaussianBlur(gray, gray, new Size(9, 9), 2, 2);
+  
+          var circles = Cv2.HoughCircles(gray, HoughMethods.Gradient, 1, 20, 100, 50, 0, 0);
+  
+          int coinCount = circles?.Length ?? 0;
+  
+          Console.WriteLine($"총 {coinCount} 개의 동전을 감지했습니다.");
+  
+          Cv2.ImShow("coins", img);
+          Cv2.WaitKey(0);
+          Cv2.DestroyAllWindows();
+      }
+  }
+  ```
+- 사전 정보를 제공하고 질문한 결과
+  ```cs
+  using System;
+  using Emgu.CV;
+  using Emgu.CV.CvEnum;
+  using Emgu.CV.Structure;
+  using Emgu.CV.Util;
+  
+  namespace KoreanCoinRecognition
+  {
+      class Program
+      {
+          static void Main(string[] args)
+          {
+              // 이미지 불러오기
+              Mat sourceImage = new Mat("coins.jpg", ImreadModes.Color);
+  
+              // 그레이스케일 변환
+              Mat grayImage = new Mat();
+              CvInvoke.CvtColor(sourceImage, grayImage, ColorConversion.Bgr2Gray);
+  
+              // 블러 및 캐니 엣지 적용
+              Mat blurredImage = new Mat();
+              Mat edgeImage = new Mat();
+              CvInvoke.GaussianBlur(grayImage, blurredImage, new System.Drawing.Size(5, 5), 0);
+              CvInvoke.Canny(blurredImage, edgeImage, 100, 200);
+  
+              // 컨투어 찾기
+              VectorOfVectorOfPoint contours = new VectorOfVectorOfPoint();
+              Mat hierarchy = new Mat();
+              CvInvoke.FindContours(edgeImage, contours, hierarchy, RetrType.External, ChainApproxMethod.ChainApproxSimple);
+  
+              // 동전 크기를 기준으로 분류
+              foreach (VectorOfPoint contour in contours)
+              {
+                  double area = CvInvoke.ContourArea(contour);
+                  double radius = Math.Sqrt(area / Math.PI);
+                  System.Drawing.Point center = new System.Drawing.Point();
+                  float[] radiusArray = new float[1];
+                  CvInvoke.MinEnclosingCircle(contour, ref center, radiusArray);
+                  float foundRadius = radiusArray[0];
+  
+                  if (foundRadius > 10.0) // 노이즈 필터링
+                  {
+                      if (foundRadius > 0 && foundRadius <= 12)
+                      {
+                          Console.WriteLine("10원 동전");
+                      }
+                      else if (foundRadius > 12 && foundRadius <= 15)
+                      {
+                          Console.WriteLine("50원 동전");
+                      }
+                      else if (foundRadius > 15 && foundRadius <= 20)
+                      {
+                          Console.WriteLine("100원 동전");
+                      }
+                      else if (foundRadius > 20 && foundRadius <= 25)
+                      {
+                          Console.WriteLine("500원 동전");
+                      }
+                  }
+  
+                  CvInvoke.Circle(sourceImage, center, (int)foundRadius, new MCvScalar(0, 255, 0), 2);
+              }
+  
+              // 결과 표시
+              CvInvoke.Imshow("원본 이미지", sourceImage);
+              CvInvoke.WaitKey(0);
+          }
+      }
+  }
+  ```
+- wrtn 활용 예시 영상  
+
+<br>
+
+### 명확한 대답 요청
+- 조건을 대입하여 질문
+- 예시
+  ```cs
+  C# WPF로 OpenCV 활용해서 입력받은 이미지를 보여주고, 흑백으로 변환된 이 
+  미지를 띄워야해.
+  코드를 C#, Xaml 모두 보여줘.
+  3단계에 걸쳐서 설명해줘
+  코드 전체를 보여줘.
+  한글로 출력해줘.
+  ```
+- 결과  
+  ```cs
+  // MainWindow.xaml.cs
+  using System;
+  using System.Windows;
+  using System.Drawing;
+  using OpenCvSharp;
+  
+  namespace MainWindow
+  {
+      public partial class MainWindow : Window
+      {
+          public MainWindow()
+          {
+              InitializeComponent();
+  
+              // 이미지를 로드합니다.
+              var inputImage = Cv2.Imread("input.png");
+  
+              // 이미지를 흑백으로 변환합니다.
+              var grayscaleImage = Cv2.CvtColor(inputImage, Cv2.ColorConversion.BGR2GRAY);
+  
+              // 이미지를 윈도우에 표시합니다.
+              imageBox1.Image = inputImage;
+              imageBox2.Image = grayscaleImage;
+          }
+      }
+  }
+  ```
+  ```xml
+  <Window x:Class="MainWindow.MainWindow"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              Title="MainWindow" Height="350" Width="525">
+      <Grid>
+          <ImageBox Name="imageBox1" />
+          <ImageBox Name="imageBox2" />
+      </Grid>
+  </Window>
+  ```
+- bard 예시 영상
+  ![Bard](https://github.com/SagiK-Repository/Chat_AI_Report/assets/66783849/c31abb6c-bd99-40a6-8d06-d547f30377be)
