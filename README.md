@@ -16,6 +16,8 @@
 <br>
 
 ## 소개
+- 각 인공지능 별로 자기 소개를 시킨 결과입니다.  
+
 GTP-3 | GPT-3(GPT는 "Generative Pre-trained   Transformer"의 약어)은 OpenAI에서 개발한 대규모 언어 모델인 GPT(Generative Pre-trained   Transformer) 시리즈의 세 번째 버전입니다. GPT-3는 딥러닝 아키텍처인 Transformer를 기반으로 하며, 텍스트 생성,   자연어 이해, 번역, 질의응답 등 다양한 자연어 처리 작업에 사용할 수 있는 인공지능 모델입니다.
 -- | --
 GTP-4 | GPT-4는 OpenAI가 개발한 대화형 AI 언어 모델의 가상 버전입니다. 2021년 9월 이후에 발표된 AI 모델에 대한 공식   정보는 제공하지 않으므로, GPT-4에 대한 특정 세부사항을 제공하는 것은 어렵습니다.
