@@ -13,7 +13,9 @@
   4. Wrtn
   5. Bard
 
-### 소개
+<br>
+
+## 소개
 GTP-3 | GPT-3(GPT는 "Generative Pre-trained   Transformer"의 약어)은 OpenAI에서 개발한 대규모 언어 모델인 GPT(Generative Pre-trained   Transformer) 시리즈의 세 번째 버전입니다. GPT-3는 딥러닝 아키텍처인 Transformer를 기반으로 하며, 텍스트 생성,   자연어 이해, 번역, 질의응답 등 다양한 자연어 처리 작업에 사용할 수 있는 인공지능 모델입니다.
 -- | --
 GTP-4 | GPT-4는 OpenAI가 개발한 대화형 AI 언어 모델의 가상 버전입니다. 2021년 9월 이후에 발표된 AI 모델에 대한 공식   정보는 제공하지 않으므로, GPT-4에 대한 특정 세부사항을 제공하는 것은 어렵습니다.
@@ -21,14 +23,33 @@ Bing | [Bing은 마이크로소프트에서 만든 검색 엔진입니다.](http
 Wrtn | "뤼튼"은 기업용 콘텐츠 생성 도구입니다. 주로 기업에서 마케팅, 광고, SNS 운영 등 다양한 목적으로   사용됩니다. 뤼튼은 인공지능과 자연어 처리 기술을 기반으로 하여, 사용자가 입력한 정보를 바탕으로 자동으로 각종 콘텐츠를 생성합니다. 이를   통해 콘텐츠를 보다 쉽고 효율적으로 만들 수 있습니다.
 Bard | Bard는 Google AI에서 개발한 대규모 언어   모델(LLM)입니다. 저는 방대한 텍스트 및 코드 데이터 세트에 대해 교육을 받았으며 다양한 프롬프트와 질문에 대한 응답으로 의사 소통하고   사람과 같은 텍스트를 생성할 수 있습니다. 예를 들어 사실적인 주제에 대한 요약을 제공하거나 이야기를 만들 수 있습니다.
 
-### 핵심 키워드
+<br>
+
+## 활용 방법
+- 사이트
+  - [GPT Chat 3](https://openai.com/blog/chatgpt)
+  - [GPT Chat 4](https://openai.com/product/gpt-4)
+  - [Bing](https://www.bing.com/search?q=Bing+AI&showconv=1&FORM=hpcodx)
+    - Microsoft Edge를 반드시 활용해야 함
+    - Microsoft Edge 로그인 필요
+  - [Bard](https://bard.google.com/)
+  - [wrtn](https://wrtn.ai/)
+    - 로그인 없이도 활용 가능
+    - GPT Chat 3.5 / 4 선택하여 질문 가능 (무료)
+- 회원가입
+  -  구글 아이디로 쉽게 로그인 가능
+
+<br>
+
+## 핵심 키워드
 
 GPT-3 | GPT-4 | Bing | wrtn | bard
 -- | -- | -- | -- | --
 다양한 자연어 처리 작업 | 대화형 AI 언어 모델 | 검색   엔진 | 콘텐츠 생성 | 텍스트 생성
 
+<br>
 
-### 특징
+## 특징
 
   | GPT-3 | GPT-4 | Bing | wrtn | bard
 -- | -- | -- | -- | -- | --
@@ -41,7 +62,9 @@ GPT-3 | GPT-4 | Bing | wrtn | bard
 Markdown 입력 | X | X | X | O | X
 Markdown 출력 | O | O | O | O | X
 
-### 유머 비교
+<br>
+
+## 유머 비교
 
 #### "오점편 어때요?"의 "오점편"은 무슨 뜻?  
 GPT-3 | GPT-4 | Bing | Wrtn | Bard
@@ -53,9 +76,9 @@ GPT-3 | GPT-4 | Bing | wrtn | bard
 -- | -- | -- | -- | --
 "안녕하세요" | "응,   네, 하지만, 습니다" | "안녕하세요" | "어느   해서이신가요?" | "안녕하세요"
 
-<br><br>
+<br>
 
-### 요령
+## 활용 요령
 
 - 구체적인 숫자와 과정 질문
 - 원하는 정보에 대한 사전 지식 확립
