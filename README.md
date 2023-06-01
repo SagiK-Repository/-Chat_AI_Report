@@ -36,7 +36,6 @@ Bard | Bard는 Google AI에서 개발한 대규모 언어   모델(LLM)입니다
     - Microsoft Edge 로그인 필요
   - [Bard](https://bard.google.com/)
   - [wrtn](https://wrtn.ai/)
-    - 로그인 없이도 활용 가능
     - GPT Chat 3.5 / 4 선택하여 질문 가능 (무료)
     - 이미지 생성 가능
 - 회원가입
